@@ -91,7 +91,7 @@ document.querySelector('.b-7').addEventListener('click', makeSeven);
 //Создайте функцию makeEight, которая отправляет GET-запрос на адрес https://api.agify.io/ с параметром ?name=alice.
 
 function makeEight() {
-	
+	//Ваш код
 }
 
 document.querySelector('.b-8').addEventListener('click', makeEight);
