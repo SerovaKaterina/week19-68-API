@@ -2,7 +2,10 @@
 //Создайте функцию makeOne, которая выполняет GET-запрос по адресу https://catfact.ninja/fact, используя функцию fetch(). Результат должен быть выведен в консоль. Функция вызывается по нажатию кнопки "Задание 1".
 
 function makeOne() {
-	//Ваш код
+	fetch('https://catfact.ninja/fact')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
 }
 
 document.querySelector('.b-1').addEventListener('click', makeOne);
@@ -11,7 +14,13 @@ document.querySelector('.b-1').addEventListener('click', makeOne);
 //Создайте функцию makeTwo, которая выполняет GET-запрос по адресу https://emojihub.yurace.pro/api/random/group/face-positive. Результат запроса - поле htmlCode вставьте в элемент с id result2.
 
 function makeTwo() {
-	//Ваш код
+	fetch('https://emojihub.yurace.pro/api/random/group/face-positive')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        document.getElementById('result2').innerHTML = data.htmlCode
+    })
+    .catch(error => console.log(error))
 }
 
 document.querySelector('.b-2').addEventListener('click', makeTwo);
@@ -20,7 +29,10 @@ document.querySelector('.b-2').addEventListener('click', makeTwo);
 //Создайте функцию makeThree, которая выполняет GET-запрос по адресу https://www.boredapi.com/api/activity, используя функцию fetch(). Выведите в консоль ответ с сервера, чтобы убедиться, что получили данные.
 
 function makeThree() {
-	//Ваш код
+	fetch('https://www.boredapi.com/api/activity')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
 }
 
 document.querySelector('.b-3').addEventListener('click', makeThree);
@@ -29,7 +41,10 @@ document.querySelector('.b-3').addEventListener('click', makeThree);
 //Создайте функцию makeFour, которая делает запрос на адрес https://www.boredapi.com/api/activity. Выведите в консоль полученную активность в формате 'Activity: описание активности'.
 
 function makeFour() {
-	//Ваш код
+	fetch('https://www.boredapi.com/api/activity')
+    .then(response => response.json())
+    .then(data => console.log(`Activity: ${data.activity}`))
+    .catch(error => console.log(error))
 }
 
 document.querySelector('.b-4').addEventListener('click', makeFour);
@@ -38,16 +53,24 @@ document.querySelector('.b-4').addEventListener('click', makeFour);
 //Создайте функцию makeFive, которая делает запрос на адрес https://www.boredapi.com/api/activity. Выведите в консоль количество участников для активности.
 
 function makeFive() {
-	//Ваш код
+	fetch('https://www.boredapi.com/api/activity')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.participants)
+    })
+    .catch(error => console.log(error))
 }
 
-//добавьте слушатель события
+document.querySelector('.b-5').addEventListener('click', makeFive);
 
 //Задание 6
 //Создайте функцию makeSix, которая делает запрос на адрес https://www.boredapi.com/api/activity. Выведите в консоль свойства из полученного объекта, такие как activity, type, price и accessibility.
 
 function makeSix() {
-	//Ваш код
+	fetch('https://www.boredapi.com/api/activity')
+    .then(response => response.json())
+    .then(data => console.log(data.activity, data.type, data.price, data.accessibility))
+    .catch(error => console.log(error))
 }
 
 document.querySelector('.b-6').addEventListener('click', makeSix);
@@ -56,16 +79,19 @@ document.querySelector('.b-6').addEventListener('click', makeSix);
 //Создайте функцию makeSeven, которая делает запрос на адрес https://api.agify.io/. Выведите в консоль ответ с сервера, чтобы убедиться, что получили данные.
 
 function makeSeven() {
-	//Ваш код
+	fetch('https://api.agify.io/')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
 }
 
-//добавьте слушатель события
+document.querySelector('.b-7').addEventListener('click', makeSeven);
 
 //Задание 8
 //Создайте функцию makeEight, которая отправляет GET-запрос на адрес https://api.agify.io/ с параметром ?name=alice.
 
 function makeEight() {
-	//Ваш код
+	
 }
 
 document.querySelector('.b-8').addEventListener('click', makeEight);
