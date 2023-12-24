@@ -91,7 +91,10 @@ document.querySelector('.b-7').addEventListener('click', makeSeven);
 //Создайте функцию makeEight, которая отправляет GET-запрос на адрес https://api.agify.io/ с параметром ?name=alice.
 
 function makeEight() {
-	//Ваш код
+	fetch('https://api.agify.io/?name=alice')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
 }
 
 document.querySelector('.b-8').addEventListener('click', makeEight);
@@ -105,14 +108,15 @@ function makeNine() {
 		.then((response) => response.json())
 		.then((data) => {
 			const resultElement = document.getElementById('result9');
-			//Ваш код
+			
 		})
 		.catch((error) => {
 			console.error('Ошибка:', error);
 		});
 }
 
-//добавьте слушатель события
+document.querySelector('.b-9').addEventListener('click', makeNine);
+
 
 //Задание 10
 //Создайте функцию makeTen, которая делает запрос на адрес https://dog.ceo/api/breeds/image/random. Полученное изображение выведите после элемента с id "result10".
@@ -130,7 +134,8 @@ function makeEleven() {
 	fetch('https://api.ipify.org?format=json')
 		.then((response) => response.json())
 		.then((data) => {
-			//Ваш код
+			document.getElementById('result11').innerHTML = data.ip
+			console.log(data)
 		})
 		.catch((error) => {
 			console.error('Ошибка:', error);
@@ -143,7 +148,11 @@ document.querySelector('.b-11').addEventListener('click', makeEleven);
 //Создайте функцию makeTwelve, которая будет получать IP-адрес из поля ввода находить его гео-позицию.
 
 function makeTwelve() {
-	//Ваш код
+	let ipAddress = document.getElementById('ipAddress').value;
+	fetch(`http://ip-api.com/json/${ipAddress}`)
+	.then((response) => response.json())
+	.then(data => console.log(data))
+    .catch(error => console.log(error))
 }
 
 document.querySelector('.b-12').addEventListener('click', makeTwelve);
@@ -225,7 +234,18 @@ document.querySelector('.b-18').addEventListener('click', makeEighteen);
 //Создайте функцию makeNineteen, которая должна сделать POST-запрос на адрес https://jsonplaceholder.typicode.com/users с помощью функции fetch(). Выведите ответ с сервера в консоль.
 
 function makeNineteen() {
-	//Ваш код
+	let dataPost = { name: "Кот Учёный",
+	                 username: "kitty",
+					 email: "kitty@example.com",
+					 phone: "123-456-7890"};
+	fetch('https://jsonplaceholder.typicode.com/users',{
+		method: "POST",
+		headers: {"Content-Type": "application/json"},
+		body: JSON.stringify(dataPost)
+	})
+	.then((response) => response.json())
+		.then((data) => console.log(data))
+
 }
 
 document.querySelector('.b-19').addEventListener('click', makeNineteen);
